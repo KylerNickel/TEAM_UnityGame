@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThirdPersonCamera : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class ThirdPersonCamera : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        Cursor.visible = false;
         this.cameraTransform = this.transform;
         this.parentTransform = this.transform.parent;
 	}
@@ -29,7 +31,11 @@ public class ThirdPersonCamera : MonoBehaviour {
 	void LateUpdate ()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
             cameraDisabled = !cameraDisabled;
+            Cursor.visible = !Cursor.visible;
+        }
+            
 
 
         if (!cameraDisabled)

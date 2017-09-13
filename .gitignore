@@ -2,5 +2,6 @@ Backwards/Library/
 Backwards/Assets/BehaviorBricks/
 Backwards/Backwards.sln
 Backwards/Assets/BehaviorBricks.meta
-Backwards/Assembly-CSharp.csproj
-Backwards/Assembly-CSharp-Editor.csproj
+Backwards/.vs/
+*.csproj
+*.Editor.csproj
