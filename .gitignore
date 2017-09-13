@@ -5,3 +5,5 @@ Backwards/Assets/BehaviorBricks.meta
 Backwards/.vs/
 *.csproj
 *.Editor.csproj
+Backwards/Assets/Standard Assets/
+Backwards/obj/
