@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7874b2f13eab6bb46b6a029fc393de39
-timeCreated: 1505341062
+guid: ad33ab490ece62f4eb90faed2946c708
+timeCreated: 1505349998
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cylinder
+    4300000: Stone
     7400000: Default Take
     9500000: //RootNode
   materials:
