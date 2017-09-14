@@ -7,3 +7,4 @@ Backwards/.vs/
 *.Editor.csproj
 Backwards/Assets/Standard Assets/
 Backwards/obj/
+Backwards/Assets/PostProcessing/
