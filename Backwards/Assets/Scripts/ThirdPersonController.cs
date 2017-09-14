@@ -5,43 +5,57 @@ using UnityEngine;
 public class ThirdPersonController : MonoBehaviour {
 
     public GameObject player;
+    public Camera playerCam;
+    public Camera spectatorCam;
     public float movementSpeed = 10f;
     public float rotateSpeed = 1f;
 
-    private Rigidbody rb;
-    private Quaternion playerRotation;
+    public float health = 100; //
+    public float shield = 100; // TODO change these to private
+    public float powerLevel = 0; //
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+
     }
 
     void Update()
     {
-        MoveCharacter();
-        
+        MovePlayer();
+        if (health <= 0)
+            Die();
     }
 
-    void MoveCharacter()
+    void MovePlayer()
     {
+        // if left mouse button or w is pressed, rotate the player toward the camera direction
         if (Input.GetMouseButton(0) || Input.GetButton("Vertical"))
         {
             player.transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
         } else {
-            //player.transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * Time.deltaTime);
-            player.transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime, 0);
+            player.transform.Rotate(0, (Input.GetAxis("Horizontal") * Time.deltaTime), 0);
         }
 
+        // apply rotations
         if (Input.GetButton("Vertical"))
-        {
-            transform.Translate(0, 0, Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime, Camera.main.transform);
-        }
+            transform.Translate(0, 0, Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime, player.transform);
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            Vector3 force = new Vector3(movementSpeed, 0, 0);
-            Vector3 position = new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, player.transform.position.z);
-            rb.AddForceAtPosition(force, position);
+        if (Input.GetButton("Horizontal"))
+            transform.Translate((Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime), 0, 0, player.transform);
+    }
+
+    void ApplyDamage (float damage)
+    {
+        if (shield != 0) {
+            shield -= damage;
+        } else if (shield <= 0) {
+            health -= damage;
         }
+    }
+
+    void Die()
+    {
+        Instantiate(spectatorCam, playerCam.transform.position, playerCam.transform.rotation);
+        Destroy(player);
     }
 }

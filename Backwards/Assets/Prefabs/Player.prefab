@@ -291,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601873133804282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.463, y: 0.5, z: 0.2}
+  m_LocalPosition: {x: -0.38918787, y: 0.53, z: 1.4262748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4093063357097334}
@@ -730,8 +730,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee903e1c32bcb10479784543cc0cafd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1601873133804282}
-  speed: 10
+  player: {fileID: 1601873133804282}
+  playerCam: {fileID: 20901746362411620}
+  spectatorCam: {fileID: 20735802773235114, guid: 7212322153a16d1449881ca33dc99210,
+    type: 2}
+  movementSpeed: 10
+  rotateSpeed: 10
+  health: 100
+  shield: 10
+  powerLevel: 0
 --- !u!124 &124938972494926098
 Behaviour:
   m_ObjectHideFlags: 1
