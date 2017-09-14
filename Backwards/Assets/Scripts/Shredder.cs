@@ -13,6 +13,7 @@ public class Shredder : MonoBehaviour {
                 Destroy(child.gameObject);
                 Debug.Log("You fell out of the world!");
                 // TODO Add respawning function.
+                Cursor.visible = true;
             }
         }
 
